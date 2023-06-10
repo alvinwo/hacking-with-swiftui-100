@@ -8,9 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    private let units = ["meters", "kilometers", "feet", "yards", "miles"]
+    @State private var sourceUnit= "meters"
+    @State private var destUnit = "kilometers"
+    
     var body: some View {
         NavigationView {
-            Form {}
+            Form {
+                Section {
+                    Picker("Source Unit", sources: units, selection: $sourceUnit) {
+                        
+                    }
+                }
+            }.navigationTitle("Length Conversion")
         }
     }
 }
