@@ -8,47 +8,45 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @State private var checkAmount = 0.0
     @State private var numberOfPeople = 0
     @State private var tipPercentage = 20
     @FocusState private var amountIsFocused: Bool
-    
+
     private let tipPercentages = [10, 15, 20, 25, 30]
     private let defaultCurrency = "USD"
-    
-    var currencyCode : String {
+
+    var currencyCode: String {
         Locale.current.currency?.identifier ?? defaultCurrency
     }
-    
-    var peopleCount : Double {
+
+    var peopleCount: Double {
         Double(numberOfPeople + 2)
     }
-    
-    var totalAmount : Double {
+
+    var totalAmount: Double {
         let tipSelection = Double(tipPercentage)
         let tipValue = checkAmount / 100 * tipSelection
         return checkAmount + tipValue
     }
-    
-    var totalPerPerson : Double {
+
+    var totalPerPerson: Double {
         return totalAmount / peopleCount
     }
-    
+
     var body: some View {
         NavigationView {
             Form {
                 Section {
                     TextField("Amount", value: $checkAmount, format: .currency(code: currencyCode)).keyboardType(.decimalPad)
                         .focused($amountIsFocused)
-                                        
+
                     Picker("Number of people", selection: $numberOfPeople) {
-                        ForEach (2 ..< 10) {
+                        ForEach(2 ..< 10) {
                             Text("\($0) people")
                         }
                     }
                 }
-                
 
                 Section {
 //                    Picker("Tip percentage", selection: $tipPercentage) {
@@ -63,7 +61,7 @@ struct ContentView: View {
                 } header: {
                     Text("How much tip do you want to leave?")
                 }
-                
+
                 Section {
                     Text(totalAmount, format: .currency(code: currencyCode))
                 } header: {
@@ -76,13 +74,12 @@ struct ContentView: View {
                 } header: {
                     Text("Amount Per Person")
                 }
-                
             }
             .navigationTitle("WeSplit")
             .toolbar {
                 ToolbarItemGroup(placement: .keyboard) {
                     Spacer()
-                    
+
                     Button("Done") {
                         amountIsFocused = false
                     }
@@ -94,7 +91,7 @@ struct ContentView: View {
 
 struct TipSelectionView: View {
     @Binding var tipPercentage: Int
-    
+
     var body: some View {
         Picker("Tip Percentage", selection: $tipPercentage) {
             ForEach(0 ..< 101) {
