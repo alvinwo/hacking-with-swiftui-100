@@ -20,6 +20,10 @@ struct ContentView: View {
             LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
 
             VStack(spacing: 30) {
+                Text("Guess The Flag")
+                    .font(.largeTitle.weight(.heavy))
+                    .foregroundColor(.white)
+
                 VStack {
                     Text("Tap the flag of").foregroundColor(.white)
                         .font(.subheadline.weight(.heavy))
@@ -30,7 +34,8 @@ struct ContentView: View {
                     Button {
                         flagTapped(number)
                     } label: {
-                        Image(countries[number]).renderingMode(.original)
+                        Image(countries[number])
+                            .renderingMode(.original)
                             .clipShape(Capsule())
                             .shadow(radius: 5)
                     }
