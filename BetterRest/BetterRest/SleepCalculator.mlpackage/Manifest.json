@@ -1,0 +1,24 @@
+{
+    "fileFormatVersion": "1.0.0",
+    "itemInfoEntries": {
+        "268F8938-E2F4-4B1D-A391-FE60AC303542": {
+            "author": "com.apple.CoreML",
+            "description": "CoreML Model Specification",
+            "name": "BetterRestTabularRegressor 1.mlmodel",
+            "path": "com.apple.CoreML/BetterRestTabularRegressor 1.mlmodel"
+        },
+        "3DAFB706-38E5-4593-AFCD-E6D9DF105359": {
+            "author": "com.apple.CoreML",
+            "description": "External Metadata Overlay",
+            "name": "Metadata.json",
+            "path": "com.apple.CoreML/Metadata.json"
+        },
+        "F0AC6E84-8D1E-47F2-8DAE-557A861EC8DB": {
+            "author": "com.apple.CoreML",
+            "description": "External FeatureDescription Overlay",
+            "name": "FeatureDescriptions.json",
+            "path": "com.apple.CoreML/FeatureDescriptions.json"
+        }
+    },
+    "rootModelIdentifier": "268F8938-E2F4-4B1D-A391-FE60AC303542"
+}
