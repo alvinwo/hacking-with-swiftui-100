@@ -38,6 +38,11 @@ struct ContentView: View {
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0 ... 2)
     @State private var currentScore = 0
+    @State private var spin = 0.0
+    @State private var tappedIndex = 0
+    @State private var degrees = [0.0, 0.0, 0.0]
+    @State private var opacities = [1.0, 1.0, 1.0]
+    @State private var scales = [1.0, 1.0, 1.0]
 
     var body: some View {
         ZStack {
@@ -55,10 +60,25 @@ struct ContentView: View {
                 }
                 ForEach(0 ..< 3) { number in
                     Button {
+                        tappedIndex = number
                         flagTapped(number)
+                        withAnimation {
+                            tappedIndex = number
+                            degrees[tappedIndex] += 360
+                            for loopIndex in 0 ..< 3 {
+                                if loopIndex != number {
+                                    opacities[loopIndex] -= 0.25
+                                    scales[loopIndex] -= 0.5
+                                }
+                            }
+                        }
                     } label: {
                         FlagImage(country: countries[number])
-                    }
+                            .rotation3DEffect(
+                                .degrees(degrees[number]), axis: (0, 1, 0)
+                            )
+                    }.opacity(opacities[number])
+                        .scaleEffect(scales[number])
                 }
             }
         }
@@ -67,6 +87,10 @@ struct ContentView: View {
                   message: Text("score is \(currentScore)"),
                   primaryButton: .default(Text("Continue")) {
                       askQuestion()
+                      for loopIndex in 0 ..< 3 {
+                          opacities[loopIndex] = 1.0
+                          scales[loopIndex] = 1.0
+                      }
                   },
                   secondaryButton: .cancel())
         }
