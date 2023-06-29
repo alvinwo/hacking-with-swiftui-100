@@ -16,9 +16,12 @@ struct ContentView: View {
             List {
                 ForEach(expenses.items) { item in
                     HStack {
-                        Text(item.name)
+                        VStack {
+                            Text(item.name).font(.headline.bold())
+                            Text(item.type).font(.body)
+                        }
                         Spacer()
-                        Text("\(item.amount.formatted())")
+                        Text("\(item.locale.currencySymbol ?? "") \(item.amount.formatted())")
                     }
                 }
                 .onDelete(perform: removeItem)

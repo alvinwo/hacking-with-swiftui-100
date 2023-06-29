@@ -14,6 +14,15 @@ struct AddView: View {
     @State private var name = ""
     @State private var type = "Personal"
     @State private var amount = 0.0
+    @State private var locale = Locale.current
+
+    private let currencyLocales = [
+        Locale(identifier: "en_CA"),
+        Locale(identifier: "ja_JP"),
+        Locale(identifier: "en_US"),
+        Locale(identifier: "en_UK"),
+        Locale(identifier: "zh_CN"),
+    ]
 
     let types = ["Business", "Personal"]
 
@@ -28,13 +37,22 @@ struct AddView: View {
                     }
                 }
 
-                TextField("Amount", value: $amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
-                    .keyboardType(.decimalPad)
+                Section {
+                    Picker("Currency", selection: $locale) {
+                        ForEach(currencyLocales, id: \.self) {
+                            Text($0.currency?.identifier ?? "")
+                        }
+                    }
+                    TextField("Amount", value: $amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                        .keyboardType(.decimalPad)
+                }
             }
             .navigationTitle("Add Expense")
             .toolbar {
                 Button("Save") {
-                    expenses.items.append(ExpenseItem(name: name, type: type, amount: amount))
+                    print("begin append")
+                    expenses.items.append(ExpenseItem(name: name, type: type, amount: amount, locale: locale))
+                    print("append")
                     dismiss()
                 }
             }
