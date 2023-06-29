@@ -14,6 +14,7 @@
 		4E09A9802A4BC0C6005E1597 /* ExpenseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E09A97F2A4BC0C6005E1597 /* ExpenseItem.swift */; };
 		4E09A9822A4BC0FA005E1597 /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E09A9812A4BC0FA005E1597 /* Expenses.swift */; };
 		4E09A9842A4BC625005E1597 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E09A9832A4BC625005E1597 /* AddView.swift */; };
+		4E09A98B2A4D1E5F005E1597 /* AmountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E09A98A2A4D1E5F005E1597 /* AmountFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		4E09A97F2A4BC0C6005E1597 /* ExpenseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItem.swift; sourceTree = "<group>"; };
 		4E09A9812A4BC0FA005E1597 /* Expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
 		4E09A9832A4BC625005E1597 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		4E09A98A2A4D1E5F005E1597 /* AmountFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				4E09A9772A4A72EF005E1597 /* Preview Content */,
 				4E09A97F2A4BC0C6005E1597 /* ExpenseItem.swift */,
 				4E09A9812A4BC0FA005E1597 /* Expenses.swift */,
+				4E09A98A2A4D1E5F005E1597 /* AmountFormatter.swift */,
 			);
 			path = iExpense;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E09A98B2A4D1E5F005E1597 /* AmountFormatter.swift in Sources */,
 				4E09A9822A4BC0FA005E1597 /* Expenses.swift in Sources */,
 				4E09A9742A4A72EE005E1597 /* ContentView.swift in Sources */,
 				4E09A9842A4BC625005E1597 /* AddView.swift in Sources */,

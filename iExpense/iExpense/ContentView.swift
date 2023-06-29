@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var expenses = Expenses()
     @State private var showingAddExpense = false
+    private let amountFormatter = AmountFormatter()
 
     var body: some View {
         NavigationView {
@@ -21,7 +22,7 @@ struct ContentView: View {
                             Text(item.type).font(.body)
                         }
                         Spacer()
-                        Text("\(item.locale.currencySymbol ?? "") \(item.amount.formatted())")
+                        Text(amountFormatter.string(for: item) ?? "error")
                     }
                 }
                 .onDelete(perform: removeItem)
@@ -39,6 +40,18 @@ struct ContentView: View {
             }
         }
     }
+
+    // func formatAmount(format: FormatStyle) -> FormatStyle.FormatOutput {
+//        let formatter  = NumberFormatter()
+//        formatter.numberStyle = .currency
+//        if value > 10 && value < 100 {
+//            formatter.numberStyle = .currencyISOCode
+//        } else if value >= 100 {
+//            formatter.numberStyle = .currencyAccounting
+//        }
+//        formatter.maximumFractionDigits = 2
+
+//    }
 
     func removeItem(at offset: IndexSet) {
         expenses.items.remove(atOffsets: offset)
