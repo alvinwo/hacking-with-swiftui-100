@@ -10,22 +10,47 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var expenses = Expenses()
     @State private var showingAddExpense = false
+
     private let amountFormatter = AmountFormatter()
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(expenses.items) { item in
-                    HStack {
-                        VStack {
-                            Text(item.name).font(.headline.bold())
-                            Text(item.type).font(.body)
+                Section(header: Text("Personal")) {
+                    ForEach(expenses.personalItems) { item in
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text(item.name)
+                                    .font(.headline.bold())
+                                Text(item.type)
+                                    .font(.body)
+                            }
+                            Spacer()
+                            Text(amountFormatter.string(for: item) ?? "error")
                         }
-                        Spacer()
-                        Text(amountFormatter.string(for: item) ?? "error")
+                    }
+                    .onDelete { indices in
+                        expenses.personalItems.remove(atOffsets: indices)
                     }
                 }
-                .onDelete(perform: removeItem)
+
+                Section(header: Text("Business")) {
+                    ForEach(expenses.businessItems) { item in
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text(item.name)
+                                    .font(.headline.bold())
+                                Text(item.type)
+                                    .font(.body)
+                            }
+                            Spacer()
+                            Text(amountFormatter.string(for: item) ?? "error")
+                        }
+                    }
+                    .onDelete { indices in
+                        expenses.businessItems.remove(atOffsets: indices)
+                    }
+                }
             }
             .navigationTitle("iExpense")
             .toolbar {
@@ -40,18 +65,6 @@ struct ContentView: View {
             }
         }
     }
-
-    // func formatAmount(format: FormatStyle) -> FormatStyle.FormatOutput {
-//        let formatter  = NumberFormatter()
-//        formatter.numberStyle = .currency
-//        if value > 10 && value < 100 {
-//            formatter.numberStyle = .currencyISOCode
-//        } else if value >= 100 {
-//            formatter.numberStyle = .currencyAccounting
-//        }
-//        formatter.maximumFractionDigits = 2
-
-//    }
 
     func removeItem(at offset: IndexSet) {
         expenses.items.remove(atOffsets: offset)

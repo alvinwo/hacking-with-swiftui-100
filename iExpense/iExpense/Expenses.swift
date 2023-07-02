@@ -10,12 +10,34 @@ import Foundation
 class Expenses: ObservableObject {
     @Published var items = [ExpenseItem]() {
         didSet {
-            print("didSet")
             let encoder = JSONEncoder()
 
             if let encoded = try? encoder.encode(items) {
                 UserDefaults.standard.set(encoded, forKey: "Items")
+                print("saved, new items: \(items)")
             }
+        }
+    }
+
+    var personalItems: [ExpenseItem] {
+        get {
+            items.filter {
+                $0.type == "Personal"
+            }
+        }
+        set {
+            updateItems(with: newValue, for: "Personal")
+        }
+    }
+
+    var businessItems: [ExpenseItem] {
+        get {
+            items.filter {
+                $0.type == "Business"
+            }
+        }
+        set {
+            updateItems(with: newValue, for: "Business")
         }
     }
 
@@ -28,5 +50,10 @@ class Expenses: ObservableObject {
             }
         }
         items = []
+    }
+
+    private func updateItems(with newItems: [ExpenseItem], for type: String) {
+        let existingItems = items.filter { $0.type != type }
+        items = existingItems + newItems
     }
 }
