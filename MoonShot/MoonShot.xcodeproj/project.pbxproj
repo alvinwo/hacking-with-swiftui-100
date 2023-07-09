@@ -19,6 +19,8 @@
 		4E09A9B32A55C60D005E1597 /* Style-Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E09A9B22A55C60D005E1597 /* Style-Color.swift */; };
 		4EFD2EC62A59B68000EDFBC9 /* AstronautView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFD2EC52A59B68000EDFBC9 /* AstronautView.swift */; };
 		4EFD2EC82A59B7AE00EDFBC9 /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFD2EC72A59B7AE00EDFBC9 /* MissionView.swift */; };
+		4EFD2ECA2A5AFD0000EDFBC9 /* MyDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFD2EC92A5AFD0000EDFBC9 /* MyDividerView.swift */; };
+		4EFD2ECC2A5AFDBD00EDFBC9 /* AstronautScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFD2ECB2A5AFDBD00EDFBC9 /* AstronautScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		4E09A9B22A55C60D005E1597 /* Style-Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Style-Color.swift"; sourceTree = "<group>"; };
 		4EFD2EC52A59B68000EDFBC9 /* AstronautView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautView.swift; sourceTree = "<group>"; };
 		4EFD2EC72A59B7AE00EDFBC9 /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
+		4EFD2EC92A5AFD0000EDFBC9 /* MyDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDividerView.swift; sourceTree = "<group>"; };
+		4EFD2ECB2A5AFDBD00EDFBC9 /* AstronautScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 				4E09A9B22A55C60D005E1597 /* Style-Color.swift */,
 				4EFD2EC52A59B68000EDFBC9 /* AstronautView.swift */,
 				4EFD2EC72A59B7AE00EDFBC9 /* MissionView.swift */,
+				4EFD2EC92A5AFD0000EDFBC9 /* MyDividerView.swift */,
+				4EFD2ECB2A5AFDBD00EDFBC9 /* AstronautScrollView.swift */,
 			);
 			path = MoonShot;
 			sourceTree = "<group>";
@@ -170,7 +176,9 @@
 				4E09A9AD2A55BABB005E1597 /* Astronaut.swift in Sources */,
 				4E09A99D2A529A10005E1597 /* ContentView.swift in Sources */,
 				4E09A9AF2A55BB95005E1597 /* Mission.swift in Sources */,
+				4EFD2ECC2A5AFDBD00EDFBC9 /* AstronautScrollView.swift in Sources */,
 				4E09A99B2A529A10005E1597 /* MoonShotApp.swift in Sources */,
+				4EFD2ECA2A5AFD0000EDFBC9 /* MyDividerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
